@@ -8,7 +8,11 @@ const Todo = () => {
   useEffect(()=>{
     document.title=`you have ${tasks.length} task(s)`})
 
-  const handleAddTask = (title) => { // Rename the function to avoid conflict
+  const handleAddTask = (title) => { 
+    if (tasks.some((task) => task.title === title)) {
+      alert("Task already exists!");
+      return;
+    }      
     let NewTask = [...tasks, { title }];
     SetTasks(NewTask);
   };
@@ -19,7 +23,7 @@ const Todo = () => {
      SetTasks(NewTask)
   }
 
-  return (
+  return (    
     <>
       <div className='todo-container'>
         <div className='header'>TODO APP</div>

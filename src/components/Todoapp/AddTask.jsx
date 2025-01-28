@@ -4,7 +4,7 @@ const AddTask = ({ AddTask }) => { // Properly destructure props
     const [value, SetValue] = useState('');
   
     const addItem = () => {
-      if (value.trim()) {
+      if (value.trim()) {       
         AddTask(value);
         SetValue('');
       }
